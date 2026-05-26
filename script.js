@@ -130,11 +130,52 @@ function animar(){
 const tl = gsap.timeline();
 
 tl.add(animar())
-  .to('#hero-tag',         { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.2')
-  .to('#hero-subtitle',    { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.3')
-  .to('#hero-cta',         { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.4')
-  .to('#scroll-indicator', { opacity: 0.4,      duration: 0.8, ease: 'power2.out' }, '-=0.3')
-  .to('#whatsapp-float',   { opacity: 1, x: 0,  duration: 0.6, ease: 'power3.out' }, '+=0.3');
+  
+  .to('#hero-subtitle',    { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.1')
+  .to('#hero-cta',         { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.1')
+  .from(".navbar",         { width: 0, duration: 0.7, opacity: 0,}, "+=0.2")
+  .from(".navbar-logo",     {opacity:0,}, "+=0.1")
+  .from(".navbar-links",    {opacity:0, stagger: 0.2}, "+=0.1")
+  .to('#whatsapp-float',   { opacity: 1, x: 0,  duration: 0.6, ease: 'power3.out' }, '+=0.3')
+  
+
+// animaçoes section 2
+
+// === ANIMAÇÃO: about-title (reveal com scroll) ===
+const splitAboutTitle = SplitText.create('#about-title', {
+  type: 'chars',
+  mask: 'chars',
+});
+
+gsap.from(splitAboutTitle.chars, {
+  scrollTrigger: {
+    trigger: '#about-title',
+    start: 'top 85%',
+    end: 'bottom 40%',
+    scrub: 1,
+  },
+  y: '100%',
+  opacity: 0,
+  stagger: 0.05,
+});
+
+// === ANIMAÇÃO: about-desc (reveal com scroll) ===
+const splitAboutDesc = SplitText.create('#about-desc', {
+  type: 'lines',
+  mask: 'lines',
+});
+
+gsap.from(splitAboutDesc.lines, {
+  scrollTrigger: {
+    trigger: '#about-desc',
+    start: 'top 75%',
+    end: 'bottom 40%',
+    scrub: 1,
+  },
+  y: '100%',
+  opacity: 0,
+  stagger: 0.1,
+});
 
 // ─────────────────────────────────────────────────────
 // ANIMAÇÕES — SOBRE
@@ -190,12 +231,21 @@ gsap.to('#services-tag', {
 });
 
 // === ANIMAÇÃO: services-title ===
-gsap.to('#services-title', {
-  scrollTrigger: { trigger: '#services-title', start: 'top 85%' },
-  opacity: 1,
-  y: 0,
-  duration: 0.8,
-  ease: 'power3.out',
+const splitServiceTitle = SplitText.create("#services-title",{
+  type: "chars",
+  mask: "chars",
+});
+
+gsap.from(splitServiceTitle.chars,{
+  scrollTrigger:{
+    trigger: ".containerService",
+    start: "top 95%",
+    end: "bottom 90%",
+    scrub: 1,
+  },
+  y: "100%",
+  opacity: 0,
+  stagger: 0.1,
 });
 
 // === ANIMAÇÃO: card-1 ===
@@ -261,7 +311,7 @@ gsap.to('#step-1', {
 
 // === ANIMAÇÃO: step-2 ===
 gsap.to('#step-2', {
-  scrollTrigger: { trigger: '#step-2', start: 'top 85%' },
+  scrollTrigger: { trigger: '#step-2', start: 'top 75%' },
   opacity: 1,
   y: 0,
   duration: 0.8,
@@ -270,7 +320,7 @@ gsap.to('#step-2', {
 
 // === ANIMAÇÃO: step-3 ===
 gsap.to('#step-3', {
-  scrollTrigger: { trigger: '#step-3', start: 'top 85%' },
+  scrollTrigger: { trigger: '#step-3', start: 'top 65%' },
   opacity: 1,
   y: 0,
   duration: 0.8,

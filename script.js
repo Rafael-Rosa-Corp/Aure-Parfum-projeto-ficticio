@@ -131,12 +131,12 @@ const tl = gsap.timeline();
 
 tl.add(animar())
   
-  .to('#hero-subtitle',    { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.1')
-  .to('#hero-cta',         { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.1')
-  .from(".navbar",         { width: 0, duration: 0.7, opacity: 0,}, "+=0.2")
-  .from(".navbar-logo",     {opacity:0,}, "+=0.1")
-  .from(".navbar-links",    {opacity:0, stagger: 0.2}, "+=0.1")
-  .to('#whatsapp-float',   { opacity: 1, x: 0,  duration: 0.6, ease: 'power3.out' }, '+=0.3')
+  .to('#hero-subtitle',    { opacity: 1, y: 0, duration: 0.7 }, '-=0.1')
+  .to('#hero-cta',         { opacity: 1, y: 0, duration: 0.5 }, '-=0.1')
+  .from(".navbar",         { width: 0, duration: 0.5, opacity: 0,})
+  .from(".navbar-logo",     {opacity:0, }, )
+  .from(".navbar-links",    {opacity:0, stagger: 0.2} )
+  .to('#whatsapp-float',   { opacity: 1, x: 0,  duration: 0.6, ease: 'power3.out' }, '+=0.1')
   
 
 // animaçoes section 2
@@ -248,57 +248,34 @@ gsap.from(splitServiceTitle.chars,{
   stagger: 0.1,
 });
 
-// === ANIMAÇÃO: card-1 ===
-gsap.to('#card-1', {
-  scrollTrigger: { trigger: '#card-1', start: 'top 85%' },
-  opacity: 1,
-  y: 0,
-  duration: 0.8,
-  ease: 'power3.out',
-});
-
-// === ANIMAÇÃO: card-2 ===
-gsap.to('#card-2', {
-  scrollTrigger: { trigger: '#card-2', start: 'top 85%' },
-  opacity: 1,
-  y: 0,
-  duration: 0.8,
-  delay: 0.1,
-  ease: 'power3.out',
-});
-
-// === ANIMAÇÃO: card-3 ===
-gsap.to('#card-3', {
-  scrollTrigger: { trigger: '#card-3', start: 'top 85%' },
-  opacity: 1,
-  y: 0,
-  duration: 0.8,
-  delay: 0.2,
-  ease: 'power3.out',
-});
-
 
 // ─────────────────────────────────────────────────────
 // ANIMAÇÕES — PROCESSO
 // ─────────────────────────────────────────────────────
 
-// === ANIMAÇÃO: process-tag ===
-gsap.to('#process-tag', {
-  scrollTrigger: { trigger: '#process-tag', start: 'top 85%' },
-  opacity: 1,
-  y: 0,
-  duration: 0.7,
-  ease: 'power3.out',
+const splitProcess = SplitText.create('#process-title',{
+  type: 'chars',
+  mask: 'chars',
 });
 
-// === ANIMAÇÃO: process-title ===
-gsap.to('#process-title', {
-  scrollTrigger: { trigger: '#process-title', start: 'top 85%' },
-  opacity: 1,
-  y: 0,
-  duration: 0.8,
-  ease: 'power3.out',
+gsap.from(splitProcess.chars,{
+  scrollTrigger: {
+    trigger: ".container40",
+    start: 'top 99%',
+    end: 'bottom 99%',
+    scrub: 1,
+  },
+
+  y: '100%',
+  opacity: 0,
+  stagger: 0.1,
 });
+
+
+
+// === ANIMAÇÃO: process-tag ===
+
+
 
 // === ANIMAÇÃO: step-1 ===
 gsap.to('#step-1', {

@@ -74,26 +74,55 @@ gsap.registerPlugin(SplitText);
 })();
 
 
+
 // ─────────────────────────────────────────────────────
 // MENU MOBILE
 // ─────────────────────────────────────────────────────
 const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
 
-document.getElementById('menu-toggle').addEventListener('click', () => {
+// === ANIMAÇÃO: abrir menu ===
+function abrirMenu() {
   mobileMenu.classList.add('open');
   mobileMenu.setAttribute('aria-hidden', 'false');
-});
 
-document.getElementById('menu-close').addEventListener('click', () => {
-  mobileMenu.classList.remove('open');
-  mobileMenu.setAttribute('aria-hidden', 'true');
-});
+  const tl = gsap.timeline();
 
-document.querySelectorAll('.mobile-link').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    mobileMenu.setAttribute('aria-hidden', 'true');
+  // container do menu
+  tl.to(mobileMenu, {
+    opacity: 1,
+    scale: 1,
+    duration: 0.4,
+    ease: 'power3.out',
+  })
+  // links entram da esquerda, um por um
+  .from(mobileLinks, {
+    x: -40,
+    opacity: 0,
+    duration: 0.4,
+    stagger: 0.08,
+    ease: 'power3.out',
+  }, '-=0.15');
+}
+
+// === ANIMAÇÃO: fechar menu ===
+function fecharMenu() {
+  gsap.to(mobileMenu, {
+    opacity: 0,
+    scale: 1.04,
+    duration: 0.3,
+    ease: 'power3.in',
+    onComplete: () => {
+      mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    },
   });
+}
+
+document.getElementById('menu-toggle').addEventListener('click', abrirMenu);
+document.getElementById('menu-close').addEventListener('click', fecharMenu);
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', fecharMenu);
 });
 
 
@@ -134,8 +163,8 @@ tl.add(animar())
   .to('#hero-subtitle',    { opacity: 1, y: 0, duration: 0.7 }, '-=0.1')
   .to('#hero-cta',         { opacity: 1, y: 0, duration: 0.5 }, '-=0.1')
   .from(".navbar",         { width: 0, duration: 0.5, opacity: 0,})
-  .from(".navbar-logo",     {opacity:0, }, )
-  .from(".navbar-links",    {opacity:0, stagger: 0.2} )
+  .from(".navbar-logo",    {opacity:0, }, )
+  .from(".titulo-menu",    {opacity:0, stagger: 0.2},'+=.1' )
   .to('#whatsapp-float',   { opacity: 1, x: 0,  duration: 0.6, ease: 'power3.out' }, '+=0.1')
   
 
@@ -260,9 +289,9 @@ const splitProcess = SplitText.create('#process-title',{
 
 gsap.from(splitProcess.chars,{
   scrollTrigger: {
-    trigger: ".container40",
-    start: 'top 99%',
-    end: 'bottom 99%',
+    trigger: ".section40",
+    start: 'top 100%',
+    end: 'top 50%',
     scrub: 1,
   },
 
@@ -320,7 +349,7 @@ gsap.to('#cta-title', {
 
 // === ANIMAÇÃO: cta-desc ===
 gsap.to('#cta-desc', {
-  scrollTrigger: { trigger: '#cta-desc', start: 'top 85%' },
+  scrollTrigger: { trigger: '#cta-desc', start: 'top 75%' },
   opacity: 1,
   y: 0,
   duration: 0.8,
@@ -329,7 +358,7 @@ gsap.to('#cta-desc', {
 
 // === ANIMAÇÃO: cta-btn ===
 gsap.to('#cta-btn', {
-  scrollTrigger: { trigger: '#cta-btn', start: 'top 85%' },
+  scrollTrigger: { trigger: '#cta-btn', start: 'top 70%' },
   opacity: 1,
   y: 0,
   duration: 0.8,

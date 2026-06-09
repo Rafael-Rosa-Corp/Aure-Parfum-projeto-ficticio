@@ -8,14 +8,14 @@
     <title>Aure Parfum — Consultoria de Fragrâncias Personalizadas</title>
     <meta name="description" content="Descubra sua assinatura olfativa com a Aure Parfum. Consultoria personalizada de fragrâncias baseada na sua essência, personalidade e estilo de vida.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://AureParfum.com.br/">
+    <link rel="canonical" href="https://aureparfum.com.br/">
 
     <!-- === OPEN GRAPH === -->
     <meta property="og:type"        content="website">
-    <meta property="og:url"         content="https://AureParfum.com.br/">
+    <meta property="og:url"         content="https://aureparfum.com.br/">
     <meta property="og:title"       content="Aure Parfum — Consultoria de Fragrâncias Personalizadas">
     <meta property="og:description" content="Sua fragrância ideal já existe. Curadoria personalizada baseada na sua essência, personalidade e estilo de vida.">
-    <meta property="og:image"       content="https://AureParfum.com.br/og-image.jpg">
+    <meta property="og:image"       content="https://aureparfum.com.br/og-image.jpg">
     <meta property="og:locale"      content="pt_BR">
     <meta property="og:site_name"   content="Aure Parfum">
 
@@ -23,7 +23,7 @@
     <meta name="twitter:card"        content="summary_large_image">
     <meta name="twitter:title"       content="Aure Parfum — Consultoria de Fragrâncias">
     <meta name="twitter:description" content="Sua fragrância ideal já existe. Descubra sua assinatura olfativa.">
-    <meta name="twitter:image"       content="https://srparfum.com.br/og-image.jpg">
+    <meta name="twitter:image"       content="https://aureparfum.com.br/og-image.jpg">
 
     <!-- === FAVICON === -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -35,10 +35,68 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
 
+    <!-- === SCHEMA JSON-LD === -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Aure Parfum",
+      "description": "Consultoria personalizada de fragrâncias baseada na sua essência, personalidade e estilo de vida.",
+      "url": "https://aureparfum.com.br",
+      "logo": "https://aureparfum.com.br/assets/vetor-logo.svg",
+      "image": "https://aureparfum.com.br/og-image.jpg",
+      "telephone": "+5500000000000",
+      "email": "contato@aureparfum.com.br",
+      "sameAs": [
+        "https://instagram.com/aureparfum"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BR"
+      },
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de Consultoria",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Perfil Olfativo",
+              "description": "Mapeamento de personalidade, preferências e estilo para definir o perfil aromático único do cliente."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Curadoria Exclusiva",
+              "description": "Seleção de fragrâncias de casas renomadas e artesanais alinhadas à essência do cliente."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Ocasiões Especiais",
+              "description": "Consultoria de fragrância para ocasiões específicas, do ambiente profissional ao pessoal."
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
     <!-- === CSS === -->
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+
+    <!-- ============================================
+         POSITION: FIXED — ficam fora do ScrollSmoother
+         ============================================ -->
 
     <!-- Grain overlay -->
     <div class="grain-overlay"></div>
@@ -46,7 +104,7 @@
     <!-- Canvas partículas -->
     <canvas id="particles-canvas"></canvas>
 
-    <!-- === NAVBAR === -->
+    <!-- Navbar -->
     <nav class="navbar">
       <span class="navbar-logo">Aure Parfum</span>
       <ul class="navbar-links">
@@ -60,7 +118,7 @@
       </button>
     </nav>
 
-    <!-- === MENU MOBILE === -->
+    <!-- Menu mobile -->
     <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
       <button id="menu-close" class="menu-close" aria-label="Fechar menu">
         <i data-lucide="x"></i>
@@ -71,213 +129,11 @@
       <a href="#contact"  class="mobile-link">Contato</a>
     </div>
 
-    <!-- === HERO === -->
-    <section class="hero">
-      <div class="hero-content">
-
-        <h1 class="hero-title">
-          <span class="hero-line"><span class="hero-line-inner">Sua fragrância ideal</span></span>
-          <span class="hero-line"><span class="hero-line-inner hero-line-accent">já existe.</span></span>
-        </h1>
-
-        <p id="hero-subtitle" class="hero-subtitle">
-          Curadoria de fragrâncias baseada na sua essência, personalidade e estilo de vida.
-        </p>
-
-        <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20descobrir%20minha%20fragrância%20ideal."
-           id="hero-cta"
-           class="btn-primary"
-           target="_blank" rel="noopener">
-          Descobrir minha fragrância
-        </a>
-      </div>
-
-      
-    </section>
-
-    <!-- === SOBRE === -->
-    <section id="about" class="section">
-      <div class="about-grid">
-
-        <!-- Texto -->
-        <div class="about-text">
-          <!-- Logo marca d'água — descomente quando tiver o arquivo logo.svg
-          <img src="logo.svg" alt="" aria-hidden="true" class="about-watermark">
-          -->
-          <div class="about-text-inner">
-            <div id="about-line" class="line-reveal"></div>
-            <h2 id="about-title" class="about-title">
-              Não vendemos perfumes.<br>
-              <span class="text-accent italic">Revelamos identidades.</span>
-            </h2>
-            <p id="about-desc" class="about-desc">
-              Cada pessoa carrega uma assinatura olfativa única. Nosso trabalho é encontrá-la —
-              através de uma consultoria personalizada que considera sua história, suas emoções
-              e a impressão que você deseja deixar no mundo.
-            </p>
-          </div>
-        </div>
-
-        <!-- Imagem -->
-        <div id="about-image" class="about-image">
-          
-          <img
-            src="/assets/perfume.jpg"
-            alt="Frasco de perfume — Sr.Parfum"
-            class="about-photo"
-          >
-          <div class="about-photo-glow"></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- === SERVIÇOS === -->
-    <section id="services" class="section section-tinted">
-      <div class="containerService">
-        <p id="services-tag" class="section-tag">Serviços</p>
-        <h2 id="services-title" class="section-title">Uma experiência sob medida</h2>
-
-        <div class="cards-grid">
-
-          <div id="card-1" class="card">
-            <div class="card-icon">
-              <i data-lucide="user"></i>
-            </div>
-            <h3 class="card-title">Perfil Olfativo</h3>
-            <p class="card-desc">Mapeamos sua personalidade, preferências e estilo para definir seu perfil aromático único.</p>
-          </div>
-
-          <div id="card-2" class="card">
-            <div class="card-icon">
-              <i data-lucide="compass"></i>
-            </div>
-            <h3 class="card-title">Curadoria Exclusiva</h3>
-            <p class="card-desc">Selecionamos fragrâncias de casas renomadas e artesanais alinhadas à sua essência.</p>
-          </div>
-
-          <div id="card-3" class="card">
-            <div class="card-icon">
-              <i data-lucide="gift"></i>
-            </div>
-            <h3 class="card-title">Ocasiões Especiais</h3>
-            <p class="card-desc">Da reunião de negócios ao encontro romântico — uma fragrância para cada momento.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- === PROCESSO === -->
-    <section id="process" class="section40">
-      <div class="container40 container-narrow">
-        <p id="process-tag" class="section-tag">Processo</p>
-        <h2 id="process-title" class="section-title">Como funciona</h2>
-
-        <ol class="process-list">
-
-          <li id="step-1" class="process-step">
-            <span class="step-number">1</span>
-            <div class="step-content">
-              <h3 class="step-title">Conversa Inicial</h3>
-              <p class="step-desc">Uma conversa íntima sobre você — seus gostos, memórias, estilo e intenções.</p>
-            </div>
-          </li>
-
-          <li id="step-2" class="process-step">
-            <span class="step-number">2</span>
-            <div class="step-content">
-              <h3 class="step-title">Análise &amp; Curadoria</h3>
-              <p class="step-desc">Cruzamos seu perfil com centenas de fragrâncias para encontrar as combinações perfeitas.</p>
-            </div>
-          </li>
-
-          <li id="step-3" class="process-step">
-            <span class="step-number">3</span>
-            <div class="step-content">
-              <h3 class="step-title">Apresentação Personalizada</h3>
-              <p class="step-desc">Você recebe uma seleção curada com descrições detalhadas e recomendações de uso.</p>
-            </div>
-          </li>
-
-        </ol>
-      </div>
-    </section>
-
-    <!-- === CTA === -->
-    <section class="section section-cta">
-      <div class="container container-narrow text-center">
-        <h2 id="cta-title" class="cta-title">
-          Pronto para descobrir<br>
-          <span class="text-accent italic">sua assinatura?</span>
-        </h2>
-        <p id="cta-desc" class="cta-desc">
-          Agende sua consultoria e encontre a fragrância que traduz quem você é.
-        </p>
-        <a id="cta-btn"
-           href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20agendar%20minha%20consultoria%20de%20fragrâncias."
-           class="btn-primary"
-           target="_blank" rel="noopener">
-          Agendar consultoria
-        </a>
-      </div>
-    </section>
-
-    <!-- === CONTATO === -->
-    <section id="contact" class="section section-border-top">
-      <div class="contact-grid container">
-
-        <!-- Info -->
-        <div class="contact-info">
-          <h3 id="contact-title" class="contact-title">
-            Vamos conversar<br>
-            <span class="text-accent italic">pelo WhatsApp?</span>
-          </h3>
-          <p id="contact-desc" class="contact-desc">
-            Respondo com atenção e cuidado. Uma breve conversa já é suficiente
-            para começarmos a encontrar a sua fragrância.
-          </p>
-          <div id="contact-instagram" class="contact-link">
-            <i data-lucide="instagram"></i>
-            <span>@AureParfum</span>
-          </div>
-          <div id="contact-email" class="contact-link">
-            <i data-lucide="mail"></i>
-            <span>contato@aureparfum.com.br</span>
-          </div>
-        </div>
-
-        <!-- Card WhatsApp -->
-        <div id="contact-card" class="contact-card-wrap">
-          <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20conhecer%20mais%20sobre%20a%20consultoria."
-             class="whatsapp-card"
-             target="_blank" rel="noopener">
-            <div class="whatsapp-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="var(--cor-acento)"/>
-                <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 01-4.054-1.107l-.291-.173-2.868.853.853-2.868-.173-.291A7.96 7.96 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z" fill="var(--cor-acento)"/>
-              </svg>
-            </div>
-            <p class="whatsapp-title">Falar no WhatsApp</p>
-            <p class="whatsapp-desc">Clique para iniciar uma conversa. Sem formulários, sem espera.</p>
-            <span class="btn-primary btn-small">Iniciar conversa</span>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- === FOOTER === -->
-    <footer class="footer">
-      <p class="footer-logo">Aure Parfum © 2025</p>
-      <p class="footer-sub">Consultoria de fragrâncias personalizadas</p>
-    </footer>
-
-    <!-- === BOTÃO FLUTUANTE WHATSAPP === -->
+    <!-- Botão flutuante WhatsApp -->
     <a id="whatsapp-float"
        href="https://wa.me/5500000000000?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria."
        class="whatsapp-float"
-       target="_blank" rel="noopener"
+       target="_blank" rel="noopener noreferrer"
        aria-label="Falar pelo WhatsApp">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="var(--cor-fundo)"/>
@@ -286,16 +142,223 @@
       <span class="whatsapp-float-label">WhatsApp</span>
     </a>
 
+    <!-- ============================================
+         SCROLL SMOOTHER WRAPPER
+         Todo o conteúdo scrollável fica aqui dentro
+         ============================================ -->
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+
+        <!-- === HERO === -->
+        <section class="hero">
+          <div class="hero-content">
+
+            <h1 class="hero-title">
+              <span class="hero-line"><span class="hero-line-inner">Sua fragrância ideal</span></span>
+              <span class="hero-line"><span class="hero-line-inner hero-line-accent">já existe.</span></span>
+            </h1>
+
+            <p id="hero-subtitle" class="hero-subtitle">
+              Curadoria de fragrâncias baseada na sua essência, personalidade e estilo de vida.
+            </p>
+
+            <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20descobrir%20minha%20fragrância%20ideal."
+               id="hero-cta"
+               class="btn-primary"
+               target="_blank" rel="noopener noreferrer">
+              Descobrir minha fragrância
+            </a>
+          </div>
+        </section>
+
+        <!-- === SOBRE === -->
+        <section id="about" class="section">
+          <div class="about-grid">
+
+            <!-- Texto -->
+            <div class="about-text">
+              <img src="/assets/vetor-logo.svg" alt="" aria-hidden="true" class="about-watermark" data-speed="2">
+              <div class="about-text-inner">
+                <div id="about-line" class="line-reveal"></div>
+                <h2 id="about-title" class="about-title">
+                  Não vendemos perfumes.<br>
+                  <span class="text-accent italic">Revelamos identidades.</span>
+                </h2>
+                <p id="about-desc" class="about-desc">
+                  Cada pessoa carrega uma assinatura olfativa única. Nosso trabalho é encontrá-la —
+                  através de uma consultoria personalizada que considera sua história, suas emoções
+                  e a impressão que você deseja deixar no mundo.
+                </p>
+              </div>
+            </div>
+
+            <!-- Imagem -->
+            <div id="about-image" class="about-image" >
+              <img 
+                src="/assets/perfume.jpg"
+                alt="Frasco de perfume — Aure Parfum"
+                class="about-photo"
+                loading="lazy"
+              >
+              <div class="about-photo-glow"></div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- === SERVIÇOS === -->
+        <section id="services" class="section section-tinted">
+          <div class="containerService">
+            <p id="services-tag" class="section-tag">Serviços</p>
+            <h2 id="services-title" class="section-title">Uma experiência sob medida</h2>
+
+            <div class="cards-grid">
+
+              <div id="card-1" class="card" data-speed="0.8">
+                <div class="card-icon">
+                  <i data-lucide="user"></i>
+                </div>
+                <h3 class="card-title">Perfil Olfativo</h3>
+                <p class="card-desc">Mapeamos sua personalidade, preferências e estilo para definir seu perfil aromático único.</p>
+              </div>
+
+              <div id="card-2" class="card" data-speed="1">
+                <div class="card-icon">
+                  <i data-lucide="compass"></i>
+                </div>
+                <h3 class="card-title">Curadoria Exclusiva</h3>
+                <p class="card-desc">Selecionamos fragrâncias de casas renomadas e artesanais alinhadas à sua essência.</p>
+              </div>
+
+              <div id="card-3" class="card" data-speed="1.3">
+                <div class="card-icon">
+                  <i data-lucide="gift"></i>
+                </div>
+                <h3 class="card-title">Ocasiões Especiais</h3>
+                <p class="card-desc">Da reunião de negócios ao encontro romântico — uma fragrância para cada momento.</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- === PROCESSO === -->
+        <section id="process" class="section40">
+          <div class="container40 container-narrow">
+            <p id="process-tag" class="section-tag">Processo</p>
+            <h2 id="process-title" class="section-title">Como funciona</h2>
+
+            <ol class="process-list">
+
+              <li id="step-1" class="process-step">
+                <span class="step-number">1</span>
+                <div class="step-content">
+                  <h3 class="step-title">Conversa Inicial</h3>
+                  <p class="step-desc">Uma conversa íntima sobre você — seus gostos, memórias, estilo e intenções.</p>
+                </div>
+              </li>
+
+              <li id="step-2" class="process-step">
+                <span class="step-number">2</span>
+                <div class="step-content">
+                  <h3 class="step-title">Análise &amp; Curadoria</h3>
+                  <p class="step-desc">Cruzamos seu perfil com centenas de fragrâncias para encontrar as combinações perfeitas.</p>
+                </div>
+              </li>
+
+              <li id="step-3" class="process-step">
+                <span class="step-number">3</span>
+                <div class="step-content">
+                  <h3 class="step-title">Apresentação Personalizada</h3>
+                  <p class="step-desc">Você recebe uma seleção curada com descrições detalhadas e recomendações de uso.</p>
+                </div>
+              </li>
+
+            </ol>
+          </div>
+        </section>
+
+        <!-- === CTA === -->
+        <section class="section section-cta">
+          <div class="container container-narrow text-center">
+            <h2 id="cta-title" class="cta-title">
+              Pronto para descobrir<br>
+              <span class="text-accent italic">sua assinatura?</span>
+            </h2>
+            <p id="cta-desc" class="cta-desc">
+              Agende sua consultoria e encontre a fragrância que traduz quem você é.
+            </p>
+            <a id="cta-btn"
+               href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20agendar%20minha%20consultoria%20de%20fragrâncias."
+               class="btn-primary"
+               target="_blank" rel="noopener noreferrer">
+              Agendar consultoria
+            </a>
+          </div>
+        </section>
+
+        <!-- === CONTATO === -->
+        <section id="contact" class="section section-border-top">
+          <div class="contact-grid container">
+
+            <!-- Info -->
+            <div class="contact-info">
+              <h3 id="contact-title" class="contact-title">
+                Vamos conversar<br>
+                <span class="text-accent italic">pelo WhatsApp?</span>
+              </h3>
+              <p id="contact-desc" class="contact-desc">
+                Respondo com atenção e cuidado. Uma breve conversa já é suficiente
+                para começarmos a encontrar a sua fragrância.
+              </p>
+              <div id="contact-instagram" class="contact-link">
+                <i data-lucide="instagram"></i>
+                <span>@AureParfum</span>
+              </div>
+              <div id="contact-email" class="contact-link">
+                <i data-lucide="mail"></i>
+                <span>contato@aureparfum.com.br</span>
+              </div>
+            </div>
+
+            <!-- Card WhatsApp -->
+            <div id="contact-card" class="contact-card-wrap">
+              <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20conhecer%20mais%20sobre%20a%20consultoria."
+                 class="whatsapp-card"
+                 target="_blank" rel="noopener noreferrer">
+                <div class="whatsapp-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="var(--cor-acento)"/>
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 01-4.054-1.107l-.291-.173-2.868.853.853-2.868-.173-.291A7.96 7.96 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z" fill="var(--cor-acento)"/>
+                  </svg>
+                </div>
+                <p class="whatsapp-title">Falar no WhatsApp</p>
+                <p class="whatsapp-desc">Clique para iniciar uma conversa. Sem formulários, sem espera.</p>
+                <span class="btn-primary btn-small">Iniciar conversa</span>
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- === FOOTER === -->
+        <footer class="footer">
+          <p class="footer-logo">Aure Parfum © 2025</p>
+          <p class="footer-sub">Consultoria de fragrâncias personalizadas</p>
+        </footer>
+
+      </div><!-- fim smooth-content -->
+    </div><!-- fim smooth-wrapper -->
+
     <!-- Lucide Icons -->
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-    <!-- GSAP -->
+    <!-- GSAP + plugins -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollSmoother.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
     <!-- JS -->
     <script src="script.js"></script>
-
 
   </body>
 </html>

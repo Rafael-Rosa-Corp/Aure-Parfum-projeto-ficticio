@@ -392,7 +392,7 @@ img {
 
 .about-text {
   position: relative;
-  overflow: hidden;
+  
 }
 
 .about-text-inner {
@@ -400,14 +400,14 @@ img {
   z-index: 1;
 }
 
-/* Logo marca d'água (descomentada quando disponível) */
+
 .about-watermark {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 140%;
-  max-width: none;
+  width: 100%;
+  
   opacity: 0.04;
   filter: blur(1px) grayscale(1);
   pointer-events: none;
@@ -480,24 +480,10 @@ img {
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.015);
   transition: transform 0.5s var(--ease-suave), box-shadow 0.5s ease;
-  opacity: 1;
-  transform: translateY(30px);
 
-  animation: cardsSurgindo;
-  animation-timeline: view();
-  animation-range: entry 0% cover 50%;
   
 }
 
-@keyframes cardsSurgindo{
-  from{
-    opacity: 0.5;
-    scale: 0.5;
-    transform: translateX(200px);
-    filter: blur(4px);
-    
-  }
-}
 
 .card:hover {
   transform: translateY(-4px);

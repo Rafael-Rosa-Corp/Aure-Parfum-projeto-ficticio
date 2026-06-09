@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://srparfum.com.br/sitemap.xml

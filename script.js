@@ -3,8 +3,10 @@
 lucide.createIcons();
 
 // === GSAP ===
+gsap.registerPlugin(ScrollSmoother);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(SplitText);
+
 
 // ─────────────────────────────────────────────────────
 // PARTÍCULAS DOURADAS (canvas hero)
@@ -74,6 +76,14 @@ gsap.registerPlugin(SplitText);
 })();
 
 
+ScrollSmoother.create({
+  wrapper: '#smooth-wrapper',
+  content: '#smooth-content',
+	smooth: 1, // suavidade - para pc 
+	smoothTouch: 0, // suavidade mobile
+	effects: true,
+});
+
 
 // ─────────────────────────────────────────────────────
 // MENU MOBILE
@@ -126,16 +136,7 @@ document.querySelectorAll('.mobile-link').forEach(link => {
 });
 
 
-// ─────────────────────────────────────────────────────
-// SMOOTH SCROLL
-// ─────────────────────────────────────────────────────
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const alvo = document.querySelector(link.getAttribute('href'));
-    if (alvo) alvo.scrollIntoView({ behavior: 'smooth' });
-  });
-});
+
 
 
 // ─────────────────────────────────────────────────────
@@ -276,6 +277,7 @@ gsap.from(splitServiceTitle.chars,{
   opacity: 0,
   stagger: 0.1,
 });
+
 
 
 // ─────────────────────────────────────────────────────
